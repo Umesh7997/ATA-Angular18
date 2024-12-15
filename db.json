@@ -9,7 +9,7 @@
       "email": "hh@gmail.com",
       "password": "Umesh@1",
       "role": "user",
-      "id": 1
+      "id": "1"
     },
     {
       "name": "kjdks",
@@ -21,7 +21,7 @@
       "password": "hhjjjd",
       "role": "user",
       "roleRequest": "",
-      "id": 2
+      "id": "2"
     },
     {
       "name": "nkj",
@@ -33,7 +33,7 @@
       "password": "hncjkc",
       "role": "user",
       "roleRequest": "admin",
-      "id": 3
+      "id": "3"
     },
     {
       "name": "jhkjjk",
@@ -45,7 +45,7 @@
       "password": "uhjhjhj",
       "role": "user",
       "roleRequest": "",
-      "id": 4
+      "id": "4"
     },
     {
       "name": "njehfjke",
@@ -57,7 +57,7 @@
       "password": "jjhkjk",
       "role": "user",
       "roleRequest": "",
-      "id": 5
+      "id": "5"
     },
     {
       "name": "umesh",
@@ -69,7 +69,7 @@
       "password": "edefdfr",
       "role": "user",
       "roleRequest": "",
-      "id": 6
+      "id": "6"
     },
     {
       "name": "jkjk",
@@ -81,79 +81,14 @@
       "password": "hijhiji",
       "role": "user",
       "roleRequest": "",
-      "id": 7
+      "id": "7"
     }
   ],
   "loginUsers": [
     {
       "email": "hh@gmail.com",
       "password": "Umesh@1",
-      "id": 1
-    },
-    {
-      "email": "hh@gmail.com",
-      "password": "Umesh@1",
-      "id": 2
-    },
-    {
-      "email": "hkjkjn@gmail.com",
-      "password": "uhjhjhj",
-      "id": 3
-    },
-    {
-      "email": "hh@gmail.com",
-      "password": "Umesh@1",
-      "id": 4
-    },
-    {
-      "email": "hh@gmail.com",
-      "password": "Umesh@1",
-      "id": 5
-    },
-    {
-      "email": "hkj@gmail.com",
-      "password": "jjhkjk",
-      "id": 6
-    },
-    {
-      "email": "hkj@gmail.com",
-      "password": "jjhkjk",
-      "id": 7
-    },
-    {
-      "email": "hh@gmail.com",
-      "password": "Umesh@1",
-      "id": 8
-    },
-    {
-      "email": "hh@gmail.com",
-      "password": "Umesh@1",
-      "id": 9
-    },
-    {
-      "email": "hh@gmail.com",
-      "password": "Umesh@1",
-      "id": 10
-    },
-    {
-      "email": "hh@gmail.com",
-      "password": "Umesh@1",
-      "id": 11
-    },
-    {
-      "email": "hh@gmail.com",
-      "password": "Umesh@1",
-      "id": 12
-    },
-    {
-      "email": "hh@gmail.com",
-      "password": "Umesh@1",
-      "id": 13
-    },
-    {
-      "email": "abc@gmail.com",
-      "password": "hhjjjd",
-      "id": 14
+      "id": "1"
     }
   ]
 }

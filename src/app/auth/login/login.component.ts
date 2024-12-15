@@ -19,7 +19,7 @@ export class LoginComponent {
 
   loginForm: FormGroup;
   homeSer = inject(HomeService);
- // authSer = inject(AuthService);
+ authSer = inject(AuthService);
   fb = inject(FormBuilder);
   router = inject(Router);
   dialogRef = inject(MatDialogRef<LoginComponent>)
@@ -35,19 +35,24 @@ export class LoginComponent {
 
   loginSubmit() {
     if (this.loginForm.valid) {
-      this.homeSer.userLogin(this.loginForm.value).subscribe({
+      debugger
+      const { email, password } = this.loginForm.value;
+      this.authSer.login(email, password).subscribe({
         next: (res: any) => {
-          
+          if (res) {
             alert("Login Success");
             this.loginForm.reset();
             this.dialogRef.close();
             this.router.navigateByUrl('/user-dashboard');
-
+          } else {
+            alert("Invalid credentials");
+          }
         },
         error: (err) => {
           alert("Login Failed");
+          console.error('Login error:', err);
         }
-      })
+      });
     }
   }
 }

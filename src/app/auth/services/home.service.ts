@@ -19,5 +19,9 @@ export class HomeService {
  userLogin(data:any): Observable<any>{
    return this.http.post(this.apiUrl+'/loginUsers',data);
  }
+
+ getUser(): Observable<any>{
+  return this.http.get(this.apiUrl+'/users');
+ }
   
 }

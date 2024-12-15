@@ -23,18 +23,25 @@ export class AuthService {
     return this.http.get<any>(`${this.apiUrl}/users`).pipe(
       map(users=>{
         const user = users.find((u:any)=> u.email === email && u.password === password);
-        if(user){
+        if (user) {
           const token = this.generateToken();
-          localStorage.setItem(TOKEN_KEY,token);
-          localStorage.setItem(USER_KEY,JSON.stringify(user));
-          console.log('user added',user);
-          return {token};
+          console.log('Setting token:', token);
+          localStorage.setItem(TOKEN_KEY, token);
+          console.log('Setting user:', user);
+          localStorage.setItem(USER_KEY, JSON.stringify(user));
+          console.log('User added', user);
+          return { token };
+        } else {
+          console.log('Invalid credentials');
+          return { error: 'Invalid credentials' };
         }
-        else{
-          return {error :'Invalid credentials'};
-        }
+      }),
+      catchError(error => {
+        console.error('Error during login:', error);
+        return of({ error: 'Login failed' });
       })
-    )
+    );
+    
   }
 
   logout(){
