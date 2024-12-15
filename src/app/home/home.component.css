@@ -1,0 +1,24 @@
+.container {
+  padding:5%;
+    height: 80vh; 
+  }
+
+  .primary-text {
+    color: #195896; 
+  }
+
+  .secondary-text {
+    color: #195896; 
+  }
+
+  .highlight-text {
+    color: #FAAA19; 
+  }
+
+  .container {
+    max-width: 800px;
+  }
+
+  .description {
+    margin-top: 20px;
+  }

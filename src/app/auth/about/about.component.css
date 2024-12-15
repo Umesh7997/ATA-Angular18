@@ -1,0 +1,24 @@
+.container {
+  width: 70% !important;
+  align-items: center !important;
+    }
+  
+    .primary-text {
+      color: #195896; 
+    }
+  
+    .secondary-text {
+      color: #195896; 
+    }
+  
+    .highlight-text {
+      color: #FAAA19; 
+    }
+  
+    .container {
+      max-width: 800px;
+    }
+  
+    .description {
+      margin-top: 10px;
+    }

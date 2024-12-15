@@ -1,0 +1,159 @@
+{
+  "users": [
+    {
+      "name": "umesh",
+      "dob": "2024-12-13",
+      "gender": "male",
+      "address": "hyderabad",
+      "mobile": "7989809011",
+      "email": "hh@gmail.com",
+      "password": "Umesh@1",
+      "role": "user",
+      "id": 1
+    },
+    {
+      "name": "kjdks",
+      "dob": "2024-12-10",
+      "gender": "male",
+      "address": "hyderabad",
+      "mobile": "7989809011",
+      "email": "abc@gmail.com",
+      "password": "hhjjjd",
+      "role": "user",
+      "roleRequest": "",
+      "id": 2
+    },
+    {
+      "name": "nkj",
+      "dob": "2024-12-10",
+      "gender": "female",
+      "address": "ddwedfwe",
+      "mobile": "7928080290",
+      "email": "bjhj@gmail.com",
+      "password": "hncjkc",
+      "role": "user",
+      "roleRequest": "admin",
+      "id": 3
+    },
+    {
+      "name": "jhkjjk",
+      "dob": "2024-12-18",
+      "gender": "male",
+      "address": "ndkjn",
+      "mobile": "7989892779",
+      "email": "hkjkjn@gmail.com",
+      "password": "uhjhjhj",
+      "role": "user",
+      "roleRequest": "",
+      "id": 4
+    },
+    {
+      "name": "njehfjke",
+      "dob": "2024-12-16",
+      "gender": "male",
+      "address": "nlkwnd",
+      "mobile": "7979080928",
+      "email": "hkj@gmail.com",
+      "password": "jjhkjk",
+      "role": "user",
+      "roleRequest": "",
+      "id": 5
+    },
+    {
+      "name": "umesh",
+      "dob": "2002-02-06",
+      "gender": "male",
+      "address": "njnkn",
+      "mobile": "7928080290",
+      "email": "bjhj@gmail.com",
+      "password": "edefdfr",
+      "role": "user",
+      "roleRequest": "",
+      "id": 6
+    },
+    {
+      "name": "jkjk",
+      "dob": "2000-02-01",
+      "gender": "male",
+      "address": "idjoj",
+      "mobile": "8980837827",
+      "email": "yiue@gmail.com",
+      "password": "hijhiji",
+      "role": "user",
+      "roleRequest": "",
+      "id": 7
+    }
+  ],
+  "loginUsers": [
+    {
+      "email": "hh@gmail.com",
+      "password": "Umesh@1",
+      "id": 1
+    },
+    {
+      "email": "hh@gmail.com",
+      "password": "Umesh@1",
+      "id": 2
+    },
+    {
+      "email": "hkjkjn@gmail.com",
+      "password": "uhjhjhj",
+      "id": 3
+    },
+    {
+      "email": "hh@gmail.com",
+      "password": "Umesh@1",
+      "id": 4
+    },
+    {
+      "email": "hh@gmail.com",
+      "password": "Umesh@1",
+      "id": 5
+    },
+    {
+      "email": "hkj@gmail.com",
+      "password": "jjhkjk",
+      "id": 6
+    },
+    {
+      "email": "hkj@gmail.com",
+      "password": "jjhkjk",
+      "id": 7
+    },
+    {
+      "email": "hh@gmail.com",
+      "password": "Umesh@1",
+      "id": 8
+    },
+    {
+      "email": "hh@gmail.com",
+      "password": "Umesh@1",
+      "id": 9
+    },
+    {
+      "email": "hh@gmail.com",
+      "password": "Umesh@1",
+      "id": 10
+    },
+    {
+      "email": "hh@gmail.com",
+      "password": "Umesh@1",
+      "id": 11
+    },
+    {
+      "email": "hh@gmail.com",
+      "password": "Umesh@1",
+      "id": 12
+    },
+    {
+      "email": "hh@gmail.com",
+      "password": "Umesh@1",
+      "id": 13
+    },
+    {
+      "email": "abc@gmail.com",
+      "password": "hhjjjd",
+      "id": 14
+    }
+  ]
+}
