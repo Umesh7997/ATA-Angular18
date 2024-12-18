@@ -4,25 +4,32 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterModule } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 import { HomeService } from '../services/home.service';
-import { AuthService } from '../auth.service';
-
+import { AuthService, USER_KEY } from '../auth.service';
+import {MatButtonModule} from '@angular/material/button';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { SignupComponent } from '../signup/signup.component';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule,MatButtonModule,NavbarComponent,],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
 
-
+  dial = inject(MatDialog);
   loginForm: FormGroup;
   homeSer = inject(HomeService);
  authSer = inject(AuthService);
   fb = inject(FormBuilder);
   router = inject(Router);
   dialogRef = inject(MatDialogRef<LoginComponent>)
+  snackbar = inject(MatSnackBar);
+  isSubmitted =false;
+  isLoading = false;
 
 
 
@@ -34,16 +41,23 @@ export class LoginComponent {
   }
 
   loginSubmit() {
+    this.isLoading = true;
     if (this.loginForm.valid) {
-      debugger
+      this.isSubmitted = true;
       const { email, password } = this.loginForm.value;
       this.authSer.login(email, password).subscribe({
         next: (res: any) => {
           if (res) {
-            alert("Login Success");
             this.loginForm.reset();
             this.dialogRef.close();
-            this.router.navigateByUrl('/user-dashboard');
+            const userRole = JSON.parse(localStorage.getItem(USER_KEY) || '{}');
+            if(userRole.role === 'admin'){
+              this.router.navigateByUrl('/admin-dashboard');
+            }
+            else{
+              this.router.navigateByUrl('/user-dashboard');
+            }
+            this.authSer.showLoginSnackbar();
           } else {
             alert("Invalid credentials");
           }
@@ -55,4 +69,12 @@ export class LoginComponent {
       });
     }
   }
+
+ 
+  openSignUp() {
+    this.dial.closeAll();
+       this.dial.open(SignupComponent, {
+         position: { left: '10%' }
+       })
+   }
 }

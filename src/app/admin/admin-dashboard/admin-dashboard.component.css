@@ -1,0 +1,22 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.logout{
+    background-color: rgba(87, 6, 6, 0.811);
+    color:white;
+    height:45px;
+    width:45px;
+}
+.sidenav-container{
+    height: 89vh;
+}
+.mat-sidenav-content{
+    padding:20px;
+}
+.mat-mdc-raised-button:not(:disabled){
+    margin:10px;
+    width:150px;
+}
+.mat-list{
+    text-decoration: none;
+}

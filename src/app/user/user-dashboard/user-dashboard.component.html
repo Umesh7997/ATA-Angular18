@@ -1,1 +1,46 @@
-<p>user-dashboard works!</p>
+<mat-toolbar>
+    <mat-toolbar-row>
+        <h6>ATA</h6>
+        <span class="example-spacer"></span>
+
+        <button mat-fab class="logout" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+        </button>
+    </mat-toolbar-row>
+
+</mat-toolbar>
+
+
+
+
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" opened [style.width]="'200px'">
+        <mat-nav-list >
+            <!-- <button mat-raised-button mat-nav-list >Dashboard</button>
+            <button mat-raised-button mat-nav-list>Book Vehicle</button> -->
+            <ng-container *ngFor="let items of menuItems">
+                
+                    <a mat-list-item class="mat-list" [routerLink]="items.route">
+                        <mat-icon matListItemIcon style="color:black">{{items.icon}}</mat-icon>
+                        <span style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">{{items.label}}</span>
+                    </a>
+            
+            </ng-container>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Welcome to the User Dashboard</mat-card-title>
+                </mat-card-header>
+            </mat-card>
+            <mat-card id="matcard">
+                <mat-card-content>
+                    <router-outlet></router-outlet>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
