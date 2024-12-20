@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class HomeService {
   http = inject(HttpClient)
 
-  apiUrl="http://localhost:3000";
+  private apiUrl="http://localhost:3000";
 
   constructor() { }
 
@@ -18,6 +18,10 @@ export class HomeService {
 
  userLogin(data:any): Observable<any>{
    return this.http.post(this.apiUrl+'/loginUsers',data);
+ }
+
+ getUser(): Observable<any>{
+  return this.http.get(this.apiUrl+'/users');
  }
   
 }

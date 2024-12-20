@@ -15,9 +15,10 @@
       color: #FAAA19; 
     }
   
-    .container {
+    /* .container {
       max-width: 800px;
-    }
+      height:600px;
+    } */
   
     .description {
       margin-top: 10px;

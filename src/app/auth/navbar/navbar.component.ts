@@ -28,23 +28,24 @@ export class NavbarComponent {
   openAbout() {
    this.closeDialog();
       this.dial.open(AboutComponent, {
-        width: 'auto',
-        height: 'auto',
-        position: { left: '10%', bottom: '10%' },
+       
+        position: { left: '10%' },
       })
   }
 
   openSignUp() {
    this.closeDialog();
       this.dial.open(SignupComponent, {
-        position: { left: '10%', bottom: '10%' }
+        height: '95vh',
+        position: { left: '10%' }
       })
   }
 
   openLogin() {
     this.closeDialog()
       this.dial.open(LoginComponent, {
-        position: { left: '10%', bottom: '10%' }
+        width:'50%',
+        position: { right: '25%' }
       })
   }
   private closeDialog() {

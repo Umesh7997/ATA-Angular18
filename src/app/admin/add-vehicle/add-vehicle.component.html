@@ -1,1 +1,72 @@
-<p>add-vehicle works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="vehicle-container p-4 bg-light rounded shadow-sm">
+          <form [formGroup]="vehicleForm" (ngSubmit)="vehicleSubmit()">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label for="vehicle_no">Vehicle No:</label>
+                  <input id="vehicle_no" formControlName="vehicle_no" type="text" class="form-control" maxlength="10">
+                  <div *ngIf="vehicleForm.get('vehicle_no')?.invalid && vehicleForm.get('vehicle_no')?.touched" class="text-danger" aria-hidden="true">Vehicle No is required</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label for="vehicle_name">Vehicle Name:</label>
+                  <input id="vehicle_name" formControlName="vehicle_name" type="text" class="form-control">
+                  <div *ngIf="vehicleForm.get('vehicle_name')?.invalid && vehicleForm.get('vehicle_name')?.touched" class="text-danger">Vehicle Name is required</div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label for="seating_capacity">Seating Capacity:</label>
+                  <input id="seating_capacity" formControlName="seating_capacity" type="text" class="form-control" maxlength="2">
+                  <div *ngIf="vehicleForm.get('seating_capacity')?.invalid && vehicleForm.get('seating_capacity')?.touched" class="text-danger">Seating Capacity is required</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label for="driver_id">Driver ID:</label>
+                  <ng-select [items]="driversData"
+                           bindLabel="driver_name"
+                           bindValue="id"
+                           [searchable]="true"
+                           formControlName="driver_id">
+                </ng-select>
+                  <div *ngIf="vehicleForm.get('driver_id')?.invalid && vehicleForm.get('driver_id')?.touched" class="text-danger">Driver ID is required</div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label for="vehicle_type">Vehicle Type:</label>
+                  <input id="vehicle_type" formControlName="vehicle_type" class="form-control" type="text">
+                  <div *ngIf="vehicleForm.get('vehicle_type')?.invalid && vehicleForm.get('vehicle_type')?.touched" class="text-danger">Vehicle Type is required</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label for="vehicle_fare_per_km">FarePerKm:</label>
+                  <input id="vehicle_fare_per_km" formControlName="vehicle_fare_per_km" type="text" class="form-control" maxlength="3">
+                  <div *ngIf="vehicleForm.get('vehicle_fare_per_km')?.invalid && vehicleForm.get('vehicle_fare_per_km')?.touched" class="text-danger">FarePerKm is required</div>
+                </div>
+              </div>
+            </div>
+  
+           
+          
+            <div style="text-align: center">
+              <button mat-flat-button color="warn" type="submit" [disabled]="vehicleForm.invalid">+ Vehicle</button> 
+            </div>
+           
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> 

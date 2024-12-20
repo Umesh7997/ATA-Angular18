@@ -10,6 +10,7 @@
   ::ng-deep .mat-mdc-dialog-container .mdc-dialog__surface{
     overflow-x: hidden !important;
     overflow-y: hidden !important;
-    width: 70% !important;
     align-items: center !important;
+    /* width: 70% !important;
+    margin:20% 10% ; */
   }

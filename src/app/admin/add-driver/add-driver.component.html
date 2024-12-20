@@ -1,1 +1,52 @@
-<p>add-driver works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="driver-container p-4 bg-light rounded shadow-sm">
+          <form [formGroup]="driverForm" (ngSubmit)="driverSubmit()">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label for="driver_name">Driver Name:</label>
+                  <input id="driver_name" formControlName="driver_name" type="text" class="form-control">
+                  <div *ngIf="driverForm.get('driver_name')?.invalid && driverForm.get('driver_name')?.touched" class="text-danger" aria-hidden="true">Driver Name is required</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label for="driver_address">Address:</label>
+                  <input id="driver_address" formControlName="driver_address" class="form-control" type="text">
+                  <div *ngIf="driverForm.get('driver_address')?.invalid && driverForm.get('driver_address')?.touched" class="text-danger">Address is required</div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="driver_cont">Contact No:</label>
+                    <input id="driver_cont" formControlName="driver_cont" type="text" class="form-control" maxlength="10">
+                    <div *ngIf="driverForm.get('driver_cont')?.invalid && driverForm.get('driver_cont')?.touched" class="text-danger" aria-hidden="true">Driver Contact is required</div>
+                    <div *ngIf="driverForm.get('driver_cont')?.errors?.['pattern']" class="text-danger">Contact number must be exactly 10 digits</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="driver_ln">Licence No:</label>
+                    <input id="driver_ln" formControlName="driver_ln" class="form-control" type="text" maxlength="10">
+                    <div *ngIf="driverForm.get('driver_ln')?.invalid && driverForm.get('driver_ln')?.touched" class="text-danger">Licence Number is required</div>
+                  </div>
+                </div>
+              </div>
+            <div style="text-align: center">
+              <button mat-flat-button color="warn" type="submit" [disabled]="driverForm.invalid">+ Driver</button> 
+            </div>
+           
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+
+ 
+        <app-view-driver></app-view-driver>
