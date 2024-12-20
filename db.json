@@ -350,6 +350,30 @@
       "password": "Umesh@1",
       "role": "admin",
       "roleRequest": ""
+    },
+    {
+      "id": "8250",
+      "name": "umesh",
+      "dob": "1994-02-01",
+      "gender": "male",
+      "address": "ddwedfwe",
+      "mobile": "2899082892",
+      "email": "hsduh@gmail.com",
+      "password": "hdudhij",
+      "role": "admin",
+      "roleRequest": ""
+    },
+    {
+      "id": "cfc7",
+      "name": "kjdks",
+      "dob": "1995-03-08",
+      "gender": "male",
+      "address": "wddndsjh",
+      "mobile": "8989892891",
+      "email": "bjhcjc@gmail.com",
+      "password": "hfijis",
+      "role": "admin",
+      "roleRequest": ""
     }
   ],
   "loginUsers": [
@@ -359,13 +383,32 @@
       "id": "1"
     }
   ],
-  "drivers":[
+  "drivers": [
     {
-      "driver_name":"Ajay",
-      "driver_address":"hyderabad",
-      "driver_cont":"8980903923",
-      "driver_ln":"TS12345678",
-      "id":"1"
+      "id": "a55e",
+      "driver_name": "jehwj",
+      "driver_address": "nejdj",
+      "driver_cont": "8498403992",
+      "driver_ln": "hi09092380"
+    },
+    {
+      "id": "6d2e",
+      "driver_name": "kjdcnkd",
+      "driver_address": "jdjcn",
+      "driver_cont": "8749848029",
+      "driver_ln": "hjh9392093"
+    }
+  ],
+  "routes": [],
+  "vehicles": [
+    {
+      "id": "db5a",
+      "vehicle_no": "ht12334492",
+      "vehicle_name": "nsjdkj",
+      "seating_capacity": "21",
+      "driver_id": "a55e",
+      "vehicle_type": "ajshjhkj",
+      "vehicle_fare_per_km": "10"
     }
   ]
 }

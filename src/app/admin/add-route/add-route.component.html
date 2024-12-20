@@ -1,1 +1,48 @@
-<p>add-route works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="route-container p-4 bg-light rounded shadow-sm">
+          <form [formGroup]="routeForm" (ngSubmit)="routeSubmit()">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label for="route_source">Source:</label>
+                  <input id="route_source" formControlName="route_source" type="text" class="form-control">
+                  <div *ngIf="routeForm.get('route_source')?.invalid && routeForm.get('route_source')?.touched" class="text-danger" aria-hidden="true">Source is required</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label for="route_destination">Destination:</label>
+                  <input id="route_destination" formControlName="route_destination" class="form-control" type="text">
+                  <div *ngIf="routeForm.get('route_destination')?.invalid && routeForm.get('route_destination')?.touched" class="text-danger">Destination is required</div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="route_distance">Distance No:</label>
+                    <input id="route_distance" formControlName="route_distance" type="text" class="form-control" maxlength="4">
+                    <div *ngIf="routeForm.get('route_distance')?.invalid && routeForm.get('route_distance')?.touched" class="text-danger" aria-hidden="true">Distance is required</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="route_duration">Duration:</label>
+                    <input id="route_duration" formControlName="route_duration" class="form-control" type="text" maxlength="2">
+                    <div *ngIf="routeForm.get('route_duration')?.invalid && routeForm.get('route_duration')?.touched" class="text-danger">Duration is required</div>
+                    <div *ngIf="routeForm.get('route_duration')?.dirty" class="text-danger">Duration must be in hours</div>
+                  </div>
+                </div>
+              </div>
+            <div style="text-align: center">
+              <button mat-flat-button color="warn" type="submit" [disabled]="routeForm.invalid">+ Route</button> 
+            </div>
+           
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> 

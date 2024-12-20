@@ -56,6 +56,7 @@ export class SignupComponent {
       this.homeSer.userSignIn(this.signupForm.value).subscribe({
 
         next: (res: any) => {
+          console.log(res);
           this.signupForm.reset();
           this.dialogRef.close();
           this.authSer.showSnackbar();

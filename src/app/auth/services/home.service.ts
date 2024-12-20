@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class HomeService {
   http = inject(HttpClient)
 
-  apiUrl="http://localhost:3000";
+  private apiUrl="http://localhost:3000";
 
   constructor() { }
 

@@ -8,13 +8,13 @@ import {MatListModule} from '@angular/material/list';
 import { AuthService } from '../../auth/auth.service';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
+import { ViewDriverComponent } from '../view-driver/view-driver.component';
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
   imports: [MatSidenavModule,MatCardModule,MatToolbarModule,
     MatIconModule,MatButtonModule,MatListModule,CommonModule,
-  RouterOutlet,RouterLink],
+  RouterOutlet,RouterLink,ViewDriverComponent],
   templateUrl: './admin-dashboard.component.html',
   styleUrl: './admin-dashboard.component.css'
 })
