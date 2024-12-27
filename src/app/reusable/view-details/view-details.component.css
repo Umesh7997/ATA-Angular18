@@ -1,0 +1,35 @@
+table th {
+  text-align: center;
+  background-color: #133e69; 
+  color:white/* Light gray background for headers */
+}
+
+td {
+  text-align: center;
+  background-color: #f0f0f0; /* Light gray background for data cells */
+}
+
+@media (width:300px) {
+  table th {
+    text-align: center;
+    background-color: #133e69; 
+    color:white/* Light gray background for headers */
+  }
+  
+  td {
+    text-align: center;
+    background-color: #f0f0f0; /* Light gray background for data cells */
+  }
+}
+
+  .custom-primary {
+    color: #323a65;
+  }
+  
+  .custom-accent {
+    color: #254a26;
+  }
+  
+  .custom-warn {
+    color: #7b1b14;
+  }

@@ -1,8 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { DateValidatorPipe } from '../../pipes/date-validator.pipe';
 import { HomeService } from '../services/home.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,27 +12,28 @@ import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatButtonModule, MatIconModule, MatSnackBarModule],
+  imports: [CommonModule, ReactiveFormsModule, MatButtonModule,
+ MatIconModule, MatSnackBarModule],
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css'],
-  providers: [DateValidatorPipe]
+  styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
 
   dial = inject(MatDialog);
   signupForm: FormGroup;
-  dateValid = inject(DateValidatorPipe);
   dialogRef = inject(MatDialogRef<SignupComponent>);
   snackbar = inject(MatSnackBar);
   authSer = inject(AuthService);
   isSubmitted = false;
   isLoading = false;
+  
 
 
   constructor(private fb: FormBuilder, private homeSer: HomeService) {
+    
     this.signupForm = this.fb.group({
       name: ['', Validators.required],
-      dob: ['', [Validators.required, this.dateValidator.bind(this)]],
+      dob: [ '', [Validators.required]],
       gender: ['', Validators.required],
       address: ['', Validators.required],
       mobile: ['', [Validators.required, Validators.maxLength(10), Validators.pattern('^[0-9]{10}$')]],
@@ -43,9 +43,11 @@ export class SignupComponent {
       roleRequest: ['']
     });
   }
-  dateValidator(control: AbstractControl): ValidationErrors | null {
-    const isValid = this.dateValid.transform(control.value);
-    return isValid ? null : { invalidDate: true };
+  ngAfterViewInit() {
+    const dobField = document.getElementById('dob') as HTMLInputElement;
+    const today = new Date();
+    const maxDate = new Date(today.getFullYear() - 20, today.getMonth(), today.getDate() - 1);
+    dobField.max = maxDate.toISOString().split('T')[0];
   }
 
 
@@ -65,13 +67,7 @@ export class SignupComponent {
           alert("SignUp Failed");
           console.log("Error", err);
         }
-      });
-    }
-    else {
-      if (!this.dateValid.transform(this.signupForm.value.dob)) {
-        this.signupForm.controls['dob'].setErrors({ invalidDate: true });
-      }
-    }
+      });    }
   }
 
   openLogin() {

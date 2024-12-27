@@ -6,11 +6,13 @@ import { VehicleService } from '../services/vehicle.service';
 import { DriverService } from '../services/driver.service';
 import { FilterDriversPipe } from '../../pipes/filter-drivers.pipe';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ViewVehicleComponent } from '../view-vehicle/view-vehicle.component';
 
 @Component({
   selector: 'app-add-vehicle',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule,MatButtonModule,FilterDriversPipe,NgSelectModule],
+  imports: [ReactiveFormsModule,CommonModule,MatButtonModule,
+    FilterDriversPipe,NgSelectModule,ViewVehicleComponent],
   templateUrl: './add-vehicle.component.html',
   styleUrl: './add-vehicle.component.css'
 })

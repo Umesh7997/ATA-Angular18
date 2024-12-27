@@ -16,9 +16,7 @@
               <div class="form-group mb-3">
                 <label for="dob">DOB:</label>
                 <input id="dob" formControlName="dob" type="date" class="form-control">
-                <div *ngIf="signupForm.get('dob')?.invalid && signupForm.get('dob')?.touched" class="text-danger">Date of birth is required</div>
-                <div *ngIf="signupForm.get('dob')?.errors?.['invalidDate']" class="text-danger">Date must be older than 18 years and not from the current year</div>
-              </div>
+                <div *ngIf="signupForm.get('dob')?.invalid && signupForm.get('dob')?.touched" class="text-danger">Date of birth is required</div>              </div>
             </div>
           </div>
 
