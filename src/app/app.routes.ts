@@ -11,6 +11,7 @@ import { AddVehicleComponent } from './admin/add-vehicle/add-vehicle.component';
 import { AddRouteComponent } from './admin/add-route/add-route.component';
 import { AddDriverComponent } from './admin/add-driver/add-driver.component';
 import { ViewBookingStatusComponent } from './user/view-booking-status/view-booking-status.component';
+import { EditDriverComponent } from './admin/edit-driver/edit-driver.component';
 
 
 
@@ -30,7 +31,9 @@ export const routes: Routes = [
          {path:'add-vehicle',component:AddVehicleComponent},
          {path:'add-route',component:AddRouteComponent},
          {path:'add-driver',component:AddDriverComponent},
-         {path:'view-bookings',component:ViewBookingComponent}
+         {path:'view-bookings',component:ViewBookingComponent},
+         {path:'edit-driver/:id',component:EditDriverComponent},
+         {path:'add-driver/:id',component:AddDriverComponent}
       ]
    },
 

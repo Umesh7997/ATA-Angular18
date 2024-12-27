@@ -14,5 +14,8 @@ export class VehicleService {
   addVehicles(data:any):Observable<any>{
     return this.http.post<any>(`${this.apiUrl}/vehicles`,data);
   }
-
+ 
+  getVehicles(){
+    return this.http.get<any>(`${this.apiUrl}/vehicles`);
+  }
 }

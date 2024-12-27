@@ -1,8 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ViewDetailsComponent } from '../view-details/view-details.component';
 import { DriverService } from '../services/driver.service';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
+import { ViewDetailsComponent } from '../../reusable/view-details/view-details.component';
+
 @Component({
   selector: 'app-view-driver',
   standalone: true,
