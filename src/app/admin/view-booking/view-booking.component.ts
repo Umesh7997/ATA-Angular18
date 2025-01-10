@@ -3,11 +3,13 @@ import { BookingsService } from '../services/bookings.service';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { ViewDetailsComponent } from '../../reusable/view-details/view-details.component';
+import { interval, switchMap } from 'rxjs';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-view-booking',
   standalone: true,
-  imports: [ViewDetailsComponent,MatIconModule],
+  imports: [ViewDetailsComponent,MatIconModule,MatPaginator],
   templateUrl: './view-booking.component.html',
   styleUrl: './view-booking.component.css'
 })
@@ -31,9 +33,10 @@ export class ViewBookingComponent implements OnInit{
   bookingSer = inject(BookingsService);
 
   getBookingsDetails(){
-    this.bookingSer.getBookings().subscribe(data=>{
+    interval(5000).pipe(switchMap(()=>this.bookingSer.getBookings()))
+    .subscribe(data=>{
       this.dataSource = data;
-      console.log(this.dataSource);
+      console.log("bookings",this.dataSource);
     })
   }
 

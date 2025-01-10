@@ -12,6 +12,9 @@ import { AddRouteComponent } from './admin/add-route/add-route.component';
 import { AddDriverComponent } from './admin/add-driver/add-driver.component';
 import { ViewBookingStatusComponent } from './user/view-booking-status/view-booking-status.component';
 import { EditDriverComponent } from './admin/edit-driver/edit-driver.component';
+import { EditVehicleComponent } from './admin/edit-vehicle/edit-vehicle.component';
+import { EditRouteComponent } from './admin/edit-route/edit-route.component';
+import { ChartsComponent } from './charts/charts.component';
 
 
 
@@ -28,12 +31,20 @@ export const routes: Routes = [
 
    {path:'admin-dashboard',component:AdminDashboardComponent,
       children:[
+        {path:'charts',component:ChartsComponent},
+        {path:'',redirectTo:'charts',pathMatch:'full'},
          {path:'add-vehicle',component:AddVehicleComponent},
          {path:'add-route',component:AddRouteComponent},
          {path:'add-driver',component:AddDriverComponent},
          {path:'view-bookings',component:ViewBookingComponent},
          {path:'edit-driver/:id',component:EditDriverComponent},
-         {path:'add-driver/:id',component:AddDriverComponent}
+         {path:'add-driver/:id',component:AddDriverComponent},
+
+         {path:'edit-vehicle/:id',component:EditVehicleComponent},
+         {path:'add-vehicle/:id',component:AddVehicleComponent},
+
+         {path:'edit-route/:id',component:EditRouteComponent},
+         {path:'add-route/:id',component:AddRouteComponent}
       ]
    },
 

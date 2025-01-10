@@ -18,4 +18,12 @@ export class VehicleService {
   getVehicles(){
     return this.http.get<any>(`${this.apiUrl}/vehicles`);
   }
+
+  getVehicleById(id:string){
+    return this.http.get<any>(`${this.apiUrl}/vehicles/${id}`);
+  }
+
+  updateVehicles(id:string,data:any){
+    return this.http.put<any>(`${this.apiUrl}/vehicles/${id}`,data);
+  }
 }

@@ -1,24 +1,24 @@
 table th {
   text-align: center;
   background-color: #133e69; 
-  color:white/* Light gray background for headers */
+  color:white;
 }
 
 td {
   text-align: center;
-  background-color: #f0f0f0; /* Light gray background for data cells */
+  background-color: #f0f0f0; 
 }
 
 @media (width:300px) {
   table th {
     text-align: center;
     background-color: #133e69; 
-    color:white/* Light gray background for headers */
+    color:white;
   }
   
   td {
     text-align: center;
-    background-color: #f0f0f0; /* Light gray background for data cells */
+    background-color: #f0f0f0; 
   }
 }
 

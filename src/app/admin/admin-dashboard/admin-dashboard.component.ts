@@ -9,12 +9,13 @@ import { AuthService } from '../../auth/auth.service';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ViewDriverComponent } from '../view-driver/view-driver.component';
+import { ChartsComponent } from '../../charts/charts.component';
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
   imports: [MatSidenavModule,MatCardModule,MatToolbarModule,
     MatIconModule,MatButtonModule,MatListModule,CommonModule,
-  RouterOutlet,RouterLink,ViewDriverComponent],
+  RouterOutlet,RouterLink,ViewDriverComponent,ChartsComponent],
   templateUrl: './admin-dashboard.component.html',
   styleUrl: './admin-dashboard.component.css'
 })
@@ -25,7 +26,7 @@ authSer = inject(AuthService);
     {
       icon:'dashboard',
       label:'Dashboard',
-      route:'/admin-dashboard'
+      route:'/admin-dashboard/charts'
     },
     {
       icon:'local_taxi',

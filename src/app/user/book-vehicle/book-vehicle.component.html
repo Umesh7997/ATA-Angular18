@@ -18,7 +18,7 @@
                             <div class="form-group mb-3">
                                 <label for="journey_date">Journey Date:</label>
                                 <input id="journey_date" formControlName="journey_date" type="date"
-                                    class="form-control" [min]="todayDate">
+                                    class="form-control" [min]="todayDate" >
                                 <div *ngIf="bookVehicleForm.get('journey_date')?.invalid && bookVehicleForm.get('journey_date')?.touched"
                                     class="text-danger">Journey Date is required</div>
                             </div>
@@ -29,9 +29,14 @@
                         <div class="col-md-6">
                             <div class="form-group mb-3">
                                 <label for="route_source">Source:</label>
-                                <ng-select [items]="routeData" bindLabel="route_source" bindValue="id"
-                                    [searchable]="true" formControlName="route_source">
-                                </ng-select>
+                            
+                                    <select id="route_source" class="form-control" formControlName="route_source">
+                                        <option value="" disabled>Select Source</option>
+                                        <option *ngFor="let route of routeData" [value]="route.id">
+                                            {{ route.route_source }}
+                                        </option>
+                                    </select>
+                                
                                 <div *ngIf="bookVehicleForm.get('route_source')?.invalid && bookVehicleForm.get('route_source')?.touched"
                                     class="text-danger">Source is required</div>
                             </div>
@@ -39,9 +44,12 @@
                         <div class="col-md-6">
                             <div class="form-group mb-3">
                                 <label for="route_destination">Destination:</label>
-                                <ng-select [items]="routeData" bindLabel="route_destination" bindValue="id"
-                                    [searchable]="true" formControlName="route_destination">
-                                </ng-select>
+                                <select id="route_destination" class="form-control" formControlName="route_destination">
+                                    <option value="" disabled>Select Destination</option>
+                                    <option *ngFor="let route of routeData" [value]="route.id">
+                                        {{ route.route_destination }}
+                                    </option>
+                                </select>
                                 <div *ngIf="bookVehicleForm.get('route_destination')?.invalid && bookVehicleForm.get('route_destination')?.touched"
                                     class="text-danger">Destination is required</div>
                             </div>
@@ -52,8 +60,12 @@
                         <div class="col-md-6">
                             <div class="form-group mb-3">
                                 <label for="boarding_point">Boarding Point:</label>
-                                <input id="boarding_point" formControlName="boarding_point" class="form-control"
-                                    type="text">
+                                <select id="boarding_point" class="form-control" formControlName="boarding_point">
+                                    <option value="" disabled>Select Boarding point</option>
+                                    <option *ngFor="let route of routeData" [value]="route.id">
+                                        {{ route.boarding_point }}
+                                    </option>
+                                </select>
                                 <div *ngIf="bookVehicleForm.get('boarding_point')?.invalid && bookVehicleForm.get('boarding_point')?.touched"
                                     class="text-danger">Boarding Point is required</div>
                             </div>
@@ -61,7 +73,12 @@
                         <div class="col-md-6">
                             <div class="form-group mb-3">
                                 <label for="drop_point">Drop Point:</label>
-                                <input id="drop_point" formControlName="drop_point" type="text" class="form-control">
+                                <select id="drop_point" class="form-control" formControlName="drop_point">
+                                    <option value="" disabled>Select Drop point</option>
+                                    <option *ngFor="let route of routeData" [value]="route.id">
+                                        {{ route.drop_point }}
+                                    </option>
+                                </select>
                                 <div *ngIf="bookVehicleForm.get('drop_point')?.invalid && bookVehicleForm.get('drop_point')?.touched"
                                     class="text-danger">Drop Point is required</div>
                             </div>
@@ -72,7 +89,7 @@
                         <div class="col-md-6">
                             <div class="form-group mb-3">
                                 <label for="no_of_passangers">Number of passangers:</label>
-                                <input id="no_of_passangers" formControlName="no_of_passangers" type="number" class="form-control" maxlength="2">
+                                <input id="no_of_passangers" formControlName="no_of_passangers" type="number" class="form-control" maxlength="2" placeholder="Enter passangers">
                                 <div *ngIf="bookVehicleForm.get('no_of_passangers')?.invalid && bookVehicleForm.get('no_of_passangers')?.touched"
                                     class="text-danger">Number of passangers is required</div>
                             </div>

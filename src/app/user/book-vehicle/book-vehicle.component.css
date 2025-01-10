@@ -1,0 +1,7 @@
+.ng-select .ng-select-clear {
+    display: none !important;
+  }
+
+  .ng-select .ng-select-container .ng-placeholder {
+    padding-right: 80px; /* Adjust this value as needed */
+}

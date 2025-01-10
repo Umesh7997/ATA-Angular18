@@ -4,6 +4,7 @@ import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { ViewDetailsComponent } from '../../reusable/view-details/view-details.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-route',
@@ -19,9 +20,10 @@ export class ViewRouteComponent implements OnInit,OnChanges{
    }
   }
 
-  columns: string[] = ['route_source', 'route_destination', 'route_distance', 'route_duration'];
+  columns: string[] = ['route_source', 'route_destination', 'route_distance', 'route_duration','boarding_point','drop_point','action'];
   dataSource: any[] = [];
   routerSer = inject(RouteService);
+  router=inject(Router);
   
   ngOnInit(): void {
    this.getRoute();
@@ -32,6 +34,10 @@ export class ViewRouteComponent implements OnInit,OnChanges{
       this.dataSource = data;
       console.log("getroutes",this.dataSource);
     })
+  }
+
+  onEditRoute(data:any):void{
+ this.router.navigate(['admin-dashboard/add-route',data.id])
   }
   
 }

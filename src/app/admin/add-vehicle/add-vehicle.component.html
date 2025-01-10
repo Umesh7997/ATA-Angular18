@@ -69,7 +69,7 @@
 
 
           <div style="text-align: center">
-            <button mat-flat-button color="warn" type="submit" [disabled]="vehicleForm.invalid">+ Vehicle</button>
+            <button mat-flat-button color="warn" type="submit" [disabled]="vehicleForm.invalid">{{isEditMode ? 'Update' : '+ Vehicle'}}</button>
           </div>
 
         </form>

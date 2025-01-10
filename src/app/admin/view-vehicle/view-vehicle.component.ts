@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { VehicleService } from '../services/vehicle.service';
 import { ViewDetailsComponent } from '../../reusable/view-details/view-details.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-vehicle',
@@ -11,13 +12,22 @@ import { ViewDetailsComponent } from '../../reusable/view-details/view-details.c
 })
 export class ViewVehicleComponent implements OnInit{
  
-  columns: string[] = ['vehicle_no', 'vehicle_name', 'seating_capacity', 'driver_id','vehicle_type','vehicle_fare_per_km'];
+  columns: string[] = ['vehicle_no', 'vehicle_name', 'seating_capacity', 'driver_id','vehicle_type','vehicle_fare_per_km','action'];
   dataSource: any[] = [];
   vehicleSer = inject(VehicleService);
+  router=inject(Router);
 
   ngOnInit(): void {
-   this.vehicleSer.getVehicles().subscribe(data=>{
-    this.dataSource = data;
-   })
+   this.getVehicles();
+  }
+
+  getVehicles(){
+    this.vehicleSer.getVehicles().subscribe(data=>{
+      this.dataSource = data;
+     });
+  }
+
+  onEditVehicle(vehicle:any):void{
+    this.router.navigate(['admin-dashboard/add-vehicle',vehicle.id])
   }
 }

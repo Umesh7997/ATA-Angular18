@@ -18,5 +18,13 @@ export class RouteService {
   getRoute():Observable<any>{
     return this.http.get<any>(`${this.apiUrl}/routes`);
   }
+
+  getRouteById(id:string): Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/routes/${id}`);
+  }
+
+  updateRoute(id:string,data:any): Observable<any>{
+    return this.http.put<any>(`${this.apiUrl}/routes/${id}`,data);
+  }
   
 }

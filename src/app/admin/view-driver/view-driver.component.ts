@@ -3,6 +3,7 @@ import { DriverService } from '../services/driver.service';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { ViewDetailsComponent } from '../../reusable/view-details/view-details.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-driver',
@@ -14,16 +15,25 @@ import { ViewDetailsComponent } from '../../reusable/view-details/view-details.c
 export class ViewDriverComponent implements OnInit{
  
 
-  columns: string[] = ['driver_name', 'driver_address', 'driver_cont', 'driver_ln'];
+  columns: string[] = ['driver_name', 'driver_address', 'driver_cont', 'driver_ln','action'];
   dataSource: any[] = [];
 
-  driverSer = inject(DriverService)
+  driverSer = inject(DriverService);
+  router = inject (Router);
  
   ngOnInit(): void {
-   this.driverSer.getDrivers().subscribe(data=>{
-    this.dataSource = data;
-    console.log("jkjkjl",this.dataSource);
-   })
+ this.getDrivers();
+  }
+
+  getDrivers(){
+    this.driverSer.getDrivers().subscribe(data=>{
+      this.dataSource = data;
+      console.log("jkjkjl",this.dataSource);
+     })
+  }
+
+  onEditDriver(driver: any): void {
+    this.router.navigate(['/admin-dashboard/add-driver', driver.id]);
   }
 
 

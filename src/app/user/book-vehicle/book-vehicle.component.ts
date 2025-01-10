@@ -28,7 +28,7 @@ routeData:any[]=[];
 
   constructor(){
     this.todayDate = new Date().toISOString().split('T')[0];
-    
+
     const today = new Date();
     // const tomorrow = new Date(today);
     // tomorrow.setDate(today.getDate() + 1);
@@ -41,12 +41,11 @@ routeData:any[]=[];
       boarding_point:['',Validators.required],
       drop_point:['',Validators.required],
       no_of_passangers:['',[Validators.required,Validators.maxLength(2)]],
-      booking_status:['pending']
+      status:['pending']
     })
   }
   ngOnInit(): void {
    this.getRouteData();
-   this.bookVehicleSubmit();
   }
 
   bookVehicleSubmit(){
@@ -67,3 +66,5 @@ routeData:any[]=[];
     })
   }
 }
+
+

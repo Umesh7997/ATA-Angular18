@@ -19,4 +19,12 @@ export class DriverService {
   getDrivers():Observable<any>{
     return this.http.get<any>(`${this.apiUrl}/drivers`);
   }
+
+  getDriverById(id:string):Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/drivers/${id}`);
+  }
+
+  updateDriver(id:string,data:any):Observable<any>{
+    return this.http.put<any>(`${this.apiUrl}/drivers/${id}`,data)
+  }
 }

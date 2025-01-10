@@ -19,6 +19,23 @@
                 </div>
               </div>
             </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label for="boarding_point">Boarding point:</label>
+                  <input id="boarding_point" formControlName="boarding_point" type="text" class="form-control">
+                  <div *ngIf="routeForm.get('boarding_point')?.invalid && routeForm.get('boarding_point')?.touched" class="text-danger" aria-hidden="true">Boarding is required</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label for="drop_point">Drop point:</label>
+                  <input id="drop_point" formControlName="drop_point" class="form-control" type="text">
+                  <div *ngIf="routeForm.get('drop_point')?.invalid && routeForm.get('drop_point')?.touched" class="text-danger">Drop point is required</div>
+                </div>
+              </div>
+            </div>
   
             <div class="row">
                 <div class="col-md-6">
@@ -38,7 +55,7 @@
                 </div>
               </div>
             <div style="text-align: center">
-              <button mat-flat-button color="warn" type="submit" [disabled]="routeForm.invalid">+ Route</button> 
+              <button mat-flat-button color="warn" type="submit" [disabled]="routeForm.invalid">{{isEditMode ? 'Update' : '+ Route'}}</button> 
             </div>
            
           </form>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { AfterViewInit, Component, inject, OnInit, ViewChild, viewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { VehicleService } from '../services/vehicle.service';
@@ -7,6 +7,8 @@ import { DriverService } from '../services/driver.service';
 import { FilterDriversPipe } from '../../pipes/filter-drivers.pipe';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ViewVehicleComponent } from '../view-vehicle/view-vehicle.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-vehicle',
@@ -16,12 +18,19 @@ import { ViewVehicleComponent } from '../view-vehicle/view-vehicle.component';
   templateUrl: './add-vehicle.component.html',
   styleUrl: './add-vehicle.component.css'
 })
-export class AddVehicleComponent implements OnInit{
+export class AddVehicleComponent implements AfterViewInit,OnInit{
 
+  @ViewChild(ViewVehicleComponent) viewVehicleComponent !: ViewVehicleComponent;
+  
+  http=inject(HttpClient);
   vehicleForm : FormGroup;
   fb = inject(FormBuilder);
   vehicleSer = inject(VehicleService);
   driverSer = inject(DriverService);
+  actiRoute = inject(ActivatedRoute);
+  router =inject(Router);
+  isEditMode = false;
+  vehicleId:string | null =null;
 
   driversData :any[] =[];
 
@@ -36,23 +45,53 @@ export class AddVehicleComponent implements OnInit{
       vehicle_fare_per_km:['',[Validators.required,Validators.maxLength(3)]]
     });
   }
+  ngAfterViewInit(): void {
+    this.viewVehicleComponent.getVehicles();
+  }
 
   ngOnInit(){
-this.getDriver();
+    this.getDriver();
+this.actiRoute.paramMap.subscribe(params =>{
+  this.vehicleId = params.get('id');
+  if(this.vehicleId){
+    this.isEditMode = true;
+    this.loadVehicleData(this.vehicleId);
+  }
+  else{
+    this.isEditMode = false;
+  }
+})
+  }
+
+
+  loadVehicleData(id:string){
+    this.vehicleSer.getVehicleById(id).subscribe(vehIdRes =>{
+      this.vehicleForm.patchValue(vehIdRes);
+    });
   }
  
   vehicleSubmit(){
     if(this.vehicleForm.valid){
-      debugger
+      if(this.isEditMode && this.vehicleId){
+this.vehicleSer.updateVehicles(this.vehicleId,this.vehicleForm.value).subscribe({
+  next:(res:any)=>{
+    console.log(res);
+    this.resetForm();
+    this.viewVehicleComponent.getVehicles();
+  }
+})
+      }else{
     this.vehicleSer.addVehicles(this.vehicleForm.value).subscribe({
       next: (res: any) => {
         this.vehicleForm.reset();
         console.log(res);
+        this.viewVehicleComponent.getVehicles();
       },
       error:(err:any)=>{
         console.log(err);
       }
     })
+  }
     }
   }
 
@@ -61,5 +100,12 @@ this.getDriver();
       this.driversData =data;
       console.log("hello",this.driversData);
     });
+  }
+
+  private resetForm():void{
+    this.vehicleForm.reset();
+    this.isEditMode =false;
+    this.vehicleId=null;
+    this.router.navigate(['/admin-dashboard/add-vehicle']);
   }
 }
